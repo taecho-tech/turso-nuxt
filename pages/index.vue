@@ -12,18 +12,14 @@
         <div class="my-10 text-center">
             <TursoLogo />
             <p class="text-turso text-xs uppercase my-2 font-black"><span class="text-taecho"><a href="#">Taecho Tech
-                    Trio:</a></span>
+                        Trio:</a></span>
                 <a href="#">Turso + Nuxt</a>
             </p>
 
         </div>
-        <div class="overflow-hidden rounded-lg bg-turso-bg shadow ">
-            <div class="px-4 py-5 sm:p-6">
-                <TursoTable />
-            </div>
-        </div>
+        <TursoTable />
     </div>
-    
+
 </template>
 
 <script>
