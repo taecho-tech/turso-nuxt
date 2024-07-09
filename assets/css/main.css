@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Borrowed with love from https://turso.tech/ */
+.bkg {
+    @apply bg-cover bg-center w-full h-full fixed top-0 left-0 -z-10;
+    background: linear-gradient(164deg, rgba(25, 47, 50, 0.6) 29.89%, rgba(15, 79, 98, 0.6) 71.78%, rgba(82, 150, 135, 0.6) 108.97%), rgb(18, 27, 34);
+}
