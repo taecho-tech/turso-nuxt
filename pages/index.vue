@@ -13,7 +13,7 @@
             <TursoLogo />
             <p class="text-turso text-xs uppercase my-2 font-black"><span class="text-taecho"><a href="#">Taecho Tech
                         Trio:</a></span>
-                <a href="#">Turso + Nuxt</a>
+                <a href="https://github.com/taecho-tech/turso-nuxt">Turso + Nuxt</a>
             </p>
 
         </div>

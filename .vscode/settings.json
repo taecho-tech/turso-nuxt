@@ -3,9 +3,9 @@
       "editor.formatOnSave": true
     },
     "[vue]": {
-      "editor.formatOnSave": true
+      "editor.formatOnSave": true,
     },
     "[json]": {
-        "editor.formatOnSave": true        
-    }
+        "editor.formatOnSave": true
+    },
   }

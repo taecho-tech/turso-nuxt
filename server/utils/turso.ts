@@ -12,10 +12,9 @@ export function useTurso() {
         );
     }
     return createClient({
-        url:'file:./db/turso-nuxt.db',
+        url: "file:./db/turso-nuxt.db",
         syncUrl: tursoConfig.NUXT_TURSO_DATABASE_URL,
         authToken: tursoConfig.NUXT_TURSO_AUTH_TOKEN,
-        syncInterval: 60
+        syncInterval: 600,
     });
-    
 }

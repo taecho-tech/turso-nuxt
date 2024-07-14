@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     compatibilityDate: "2024-04-03",
     devtools: { enabled: true },
     css: ["~/assets/css/main.css"],
+
     runtimeConfig: {
         turso: {
             // The private keys which are only available within server-side
@@ -10,10 +11,12 @@ export default defineNuxtConfig({
             NUXT_TURSO_AUTH_TOKEN: process.env.NUXT_TURSO_AUTH_TOKEN,
         },
     },
+
     postcss: {
         plugins: {
             tailwindcss: {},
-            autoprefixer: {},
         },
     },
+
+    modules: ["@nuxt/ui", "@nuxtjs/tailwindcss"],
 });

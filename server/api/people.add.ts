@@ -14,13 +14,26 @@ export default defineEventHandler(async (event) => {
         }),
     ];
 
-    await client.execute({
-        sql: "insert into people(dataSource, name, title, email) values(?, ?, ?, ?)",
-        args: fakePerson,
-    });
+    let results;
 
-    const results = await client.execute("select * from people");
+    const transaction = await client.transaction("write");
+    try {
+        await transaction.execute({
+            sql: "insert into people(dataSource, name, title, email) values(?, ?, ?, ?)",
+            args: fakePerson,
+        });
 
-    logme("people.add.ts", results.rows);
-    return results;
+        results = await transaction.execute("select * from people");
+
+        await transaction.commit();
+    } catch (error: any) {
+        logme("ERROR on people.add.ts", error);
+        return [];
+    } finally {
+        if (results) {
+            logme("people.add.ts", results || []);
+            return results.rows;
+        }
+        transaction.close();
+    }
 });

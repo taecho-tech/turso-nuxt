@@ -14,24 +14,26 @@ export default defineEventHandler(async (event) => {
         }),
     ];
 
-    // At the time of writing, mutliple statements are not supported - client.batch returns an error
-    const statements = [
-        "DROP TABLE IF EXISTS people;",
-        "CREATE TABLE people (ID INTEGER PRIMARY KEY AUTOINCREMENT, dataSource TEXT, name TEXT, title TEXT, email TEXT);",
-        {
+    const transaction = await client.transaction("write");
+    try {
+        await transaction.execute({
+            sql: "CREATE TABLE IF NOT EXISTS people ( ID INTEGER PRIMARY KEY AUTOINCREMENT, dataSource TEXT, name TEXT, title TEXT, email TEXT);",
+            args: [],
+        });
+        await transaction.execute({
+            sql: "DELETE FROM people",
+            args: [],
+        });
+        await transaction.execute({
             sql: "insert into people(dataSource, name, title, email) values(?, ?, ?, ?)",
             args: fakePerson,
-        },
-    ];
-
-    const results: any[] = [];
-    for (const statement of statements) {
-        let result = await client.execute(statement);
-        results.push(result);
+        });
+        await transaction.commit();
+    } catch (error: any) {
+        logme("ERROR on people.seed.ts", error);
+        return [];
+    } finally {
+        logme("people.seed.ts", transaction);
+        transaction.close();
     }
-
-    await client.execute("select * from people");
-
-    logme("people.seed.ts", results);
-    return results;
 });
