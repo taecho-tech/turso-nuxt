@@ -62,7 +62,8 @@
 
     <div class="text-center my-20">
         <p class="mt-2 text-xs text-gray-300 mx-auto">
-            Questions? Drop us a line at <a href="mailto:hello@taecho.tech"
+            Questions? Drop us a line at <a
+                href="mailto:hello@taecho.tech?subject=Via the TAECHO TECH TRIO:TURSO + NUXT // Tutorial"
                 class="font-bold  hover:text-taecho hover:border-taecho bg-taecho text-white px-1 mx-1 py-1 hover:text-white hover:bg-taecho/90 transition-colors">hello@taecho.tech</a>
         </p>
 
