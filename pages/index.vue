@@ -11,7 +11,8 @@
     <div class="max-w-4xl mx-auto">
         <div class="my-10 text-center">
             <TursoLogo />
-            <p class="text-turso text-xs uppercase my-2 font-black"><span class="text-taecho"><a href="#">Taecho Tech
+            <p class="text-turso text-xs uppercase my-2 font-black"><span class="text-taecho"><a
+                        href="https://www.taecho.tech/trio">Taecho Tech
                         Trio:</a></span>
                 <a href="https://github.com/taecho-tech/turso-nuxt">Turso + Nuxt</a>
             </p>
